@@ -21,7 +21,7 @@ class AvailableController {
     const searchDate = Number(date);
     // 2019-08-23 18:40:00
     // localiza os appointments
-    const appointments = await Appointment.finddAll({
+    const appointments = await Appointment.findAll({
       where: {
         provider_id: req.params.providerId,
         canceled_at: null,
