@@ -31,6 +31,8 @@ module.exports = {
       { extensions: ['.jsx', '.js'] }
     ],
     'import/prefer-default-export': 'off',
-    'react/prefer-stateless-function': 'off'
+    'react/prefer-stateless-function': 'off',
+    'no-console': ["error", { allow: ["tron"] }],
+    'no-param-reassign': 'off'
   },
 };
