@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdShoppingBasket } from 'react-icons/md';
 import { useSelector } from 'react-redux';
-import { Container, Cart } from './styles';
+import { Container, Cart, MyImage } from './styles';
 import logo from '../../assets/images/logo.svg';
 
 //function Header({cartSize}) {
@@ -15,6 +15,7 @@ export default function Header() {
       <Link to="/">
         <img src={logo} alt="Rocketshoes" />
       </Link>
+      <MyImage />
       <Cart to="/cart">
         <div>
           <strong>Meu carrinho</strong>

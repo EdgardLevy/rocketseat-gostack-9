@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 import background from '../assets/images/background.svg';
 
@@ -23,7 +23,10 @@ body {
 body, input, button {
   font:14px Roboto, sans-serif
 }
-
+html,body,#root{
+    height:100%;
+    min-height:100%;
+  }
 #root{
   max-width:1020px;
   margin:0 auto;

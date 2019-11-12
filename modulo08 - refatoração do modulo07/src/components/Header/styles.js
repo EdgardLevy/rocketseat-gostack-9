@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -30,3 +30,14 @@ export const Cart = styled(Link)`
     color: #999;
   }
 `;
+
+export const MyImage = styled.img.attrs({
+  src: "https://avatars1.githubusercontent.com/u/48997332?s=460&v=4"
+})`
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border: 5px solid #fff;
+
+`;
+
