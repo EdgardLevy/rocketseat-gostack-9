@@ -4,13 +4,14 @@ import {Route, Redirect} from 'react-router-dom';
 
 import AuthLayout from '~/pages/_layouts/auth';
 import DefaultLayout from '~/pages/_layouts/default';
+import store from '~/store';
 
 export default function RouterWrapper({
   component: Component,
   isPrivate = false,
   ...rest
 }) {
-  const signed = false;
+  const {signed} = store.getState().auth;
   // se o usuario n estiver logado e a rota for privada
   // entao redireciona para a login
   if (!signed && isPrivate) {
