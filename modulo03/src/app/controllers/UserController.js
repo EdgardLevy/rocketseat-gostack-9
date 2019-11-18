@@ -1,6 +1,6 @@
 // o modulo Yup serve para validacao de schema
 // importa todas as funcoes dentro do objeto Yup
-import * as Yup from 'Yup';
+import * as Yup from 'yup';
 import User from '../models/User';
 import File from '../models/File';
 
