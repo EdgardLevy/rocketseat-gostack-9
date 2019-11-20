@@ -38,8 +38,9 @@ export function* singUp({payload}) {
 }
 
 export function setToken({payload}) {
+  console.tron.log(`setToken()`, payload);
   if (!payload) return;
-  const {token} = payload;
+  const {token} = payload.auth;
   if (token) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
   }
