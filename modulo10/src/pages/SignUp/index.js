@@ -13,7 +13,8 @@ import {
   SignLinkText,
 } from './styles';
 
-export default function SignIn({navigation}) {
+export default function SignUp({navigation}) {
+  const emailRef = useRef();
   const passwordRef = useRef();
   function handleSubmit() {}
   return (
@@ -22,11 +23,20 @@ export default function SignIn({navigation}) {
         <Image source={logo} />
         <Form>
           <FormInput
+            icon="person-outline"
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeHolder="Nome completo"
+            returnKeyType="next"
+            onSubmitEditing={() => emailRef.current.focus()}
+          />
+          <FormInput
             icon="mail-outline"
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"
             placeHolder="Digite seu e-mail"
+            ref={emailRef}
             returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
           />
@@ -35,13 +45,12 @@ export default function SignIn({navigation}) {
             secureTextEntry
             placeHolder="Sua senha secreta"
             ref={passwordRef}
-            returnKeyType="next"
             onSubmitEditing={handleSubmit}
           />
-          <SubmitButton onPress={() => {}}>Acessar</SubmitButton>
+          <SubmitButton onPress={handleSubmit}> Acessar</SubmitButton>
         </Form>
-        <SignLink onPress={() => navigation.navigate('SignUp')}>
-          <SignLinkText>Criar conta gratuita</SignLinkText>
+        <SignLink onPress={() => navigation.navigate('SignIn')}>
+          <SignLinkText>Já tenho conta</SignLinkText>
         </SignLink>
       </Container>
     </Background>
