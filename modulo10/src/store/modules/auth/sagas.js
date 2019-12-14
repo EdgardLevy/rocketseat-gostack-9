@@ -1,15 +1,15 @@
-import {takeLatest, call, put, all} from 'redux-saga/effects';
-import {Alert} from 'react-native';
-import {signInSucess, signFailure} from './actions';
+import { takeLatest, call, put, all, delay } from 'redux-saga/effects';
+import { Alert } from 'react-native';
+import { signInSucess, signFailure } from './actions';
 import history from '~/services/history';
 import api from '~/services/api';
 
-export function* singIn({payload}) {
+export function* singIn({ payload }) {
   try {
-    const {email, password} = payload;
+    const { email, password } = payload;
 
-    const response = yield call(api.post, 'sessions', {email, password});
-    const {token, user} = response.data;
+    const response = yield call(api.post, 'sessions', { email, password });
+    const { token, user } = response.data;
     if (user.provider) {
       Alert.alert(
         'Erro no login',
@@ -19,6 +19,8 @@ export function* singIn({payload}) {
     }
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
+
+    //yield delay(3000);
 
     yield put(signInSucess(token, user));
 
@@ -32,10 +34,10 @@ export function* singIn({payload}) {
   }
 }
 
-export function* singUp({payload}) {
+export function* singUp({ payload }) {
   try {
-    const {name, email, password} = payload;
-    yield call(api.post, 'users', {name, email, password, provider: true});
+    const { name, email, password } = payload;
+    yield call(api.post, 'users', { name, email, password });
     // history.push('/');
   } catch (error) {
     Alert.alert(
@@ -46,10 +48,10 @@ export function* singUp({payload}) {
   }
 }
 
-export function setToken({payload}) {
+export function setToken({ payload }) {
   console.tron.log(`setToken()`, payload);
   if (!payload) return;
-  const {token} = payload.auth;
+  const { token } = payload.auth;
   if (token) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
   }
