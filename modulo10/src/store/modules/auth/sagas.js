@@ -20,7 +20,7 @@ export function* singIn({ payload }) {
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    //yield delay(3000);
+    // yield delay(3000);
 
     yield put(signInSucess(token, user));
 
@@ -57,13 +57,8 @@ export function setToken({ payload }) {
   }
 }
 
-export function signOut() {
-  // history.push('/');
-}
-
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', singIn),
   takeLatest('@auth/SIGN_UP_REQUEST', singUp),
-  takeLatest('@auth/SIGN_OUT', signOut),
 ]);

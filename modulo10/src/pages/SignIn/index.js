@@ -1,10 +1,10 @@
-import React, {useRef, useState} from 'react';
-import {Image} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useRef, useState } from 'react';
+import { Image } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '~/assets/logo.png';
 
 import Background from '~/components/Background';
-import {signInRequest} from '~/store/modules/auth/actions';
+import { signInRequest } from '~/store/modules/auth/actions';
 
 import {
   Container,
@@ -15,7 +15,7 @@ import {
   SignLinkText,
 } from './styles';
 
-export default function SignIn({navigation}) {
+export default function SignIn({ navigation }) {
   const passwordRef = useRef();
   const dispatch = useDispatch();
 
@@ -35,7 +35,7 @@ export default function SignIn({navigation}) {
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"
-            placeHolder="Digite seu e-mail"
+            placeholder="Digite seu e-mail"
             returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
             value={email}
@@ -44,7 +44,7 @@ export default function SignIn({navigation}) {
           <FormInput
             icon="lock-outline"
             secureTextEntry
-            placeHolder="Sua senha secreta"
+            placeholder="Sua senha secreta"
             ref={passwordRef}
             returnKeyType="next"
             onSubmitEditing={handleSubmit}
