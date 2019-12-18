@@ -12,6 +12,7 @@ export default function SelectProvider() {
 
 SelectProvider.navigationOptions = ({ navigation }) => ({
   title: 'Selecione o prestador',
+
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {
